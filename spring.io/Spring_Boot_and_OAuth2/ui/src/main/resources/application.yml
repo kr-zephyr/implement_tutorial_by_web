@@ -1,0 +1,5 @@
+security:
+  oauth2:
+    client:
+      clientId:
+        #facebook 개발자 사이트에서 관련 정보 확인하여 입력해야 함
