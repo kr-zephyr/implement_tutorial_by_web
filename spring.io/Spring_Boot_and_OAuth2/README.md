@@ -1,4 +1,4 @@
-#Spring Boot and OAuth2
+# Spring Boot and OAuth2
 
 - URL : https://spring.io/guides/tutorials/spring-boot-oauth2/
 
