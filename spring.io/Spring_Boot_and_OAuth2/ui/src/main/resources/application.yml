@@ -1,5 +1,14 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
 security:
   oauth2:
     client:
-      clientId:
-        #facebook 개발자 사이트에서 관련 정보 확인하여 입력해야 함
+      accessTokenUri: https://graph.facebook.com/oauth/access_token
+      userAuthorizationUri: https://www.facebook.com/dialog/oauth
+      tokenName: oauth_token
+      authenticationScheme: query
+      clientAuthenticationScheme: form
+    resource:
+      userInfoUri: https://graph.facebook.com/me
