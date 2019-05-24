@@ -9,6 +9,9 @@
     - security.oauth2.client.clientSecret
 - ui 앱을 기동 시 아래와 같이 VM option을 통해 설정값을 주입할 수 있다.
     - -Dsecurity.oauth2.client.clientId={{clientId}} -Dsecurity.oauth2.client.clientSecret={{clientSecret}}
+    - Tutorial을 진행함에 따라 @EnableOAuth2Sso를 @EnableOAuth2Client으로 대체함으로써 개별 OAuth에 대한 구현을 가능하게 변경하였다.
+    - 현재(2019.05.24)는 Facebook Client를 직접 구현하는 형태로 바뀌었으며, application.yml의 설정도 security.oauth2.client가 아닌 facebook.client로 변경하였으므로 아래와 같이 주입해야 한다.
+    - -Dfacebook.client.clientId={{clientId}} -Dfacebook.client.clientSecret={{clientSecret}} 
     
 #### application.yml의 spring.main.allow-bean-definition-overriding 옵션 추가 사유
 - SpringBoot2.1부터는 Spring Bean의 Override 기능이 제거되었다. (제거된 사유는 찾아보자.)
