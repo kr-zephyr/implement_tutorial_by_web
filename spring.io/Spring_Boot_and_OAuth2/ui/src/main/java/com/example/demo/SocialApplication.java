@@ -30,7 +30,7 @@ import java.security.Principal;
 public class SocialApplication extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	OAuth2ClientContext oAuth2ClientContext;
+	OAuth2ClientContext oauth2ClientContext;
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -48,7 +48,7 @@ public class SocialApplication extends WebSecurityConfigurerAdapter {
 	
 	private Filter ssoFilter() {
 		OAuth2ClientAuthenticationProcessingFilter facebookFilter = new OAuth2ClientAuthenticationProcessingFilter("/login/facebook");
-		OAuth2RestTemplate facebookTemplate = new OAuth2RestTemplate(facebook(), oAuth2ClientContext);
+		OAuth2RestTemplate facebookTemplate = new OAuth2RestTemplate(facebook(), oauth2ClientContext);
 		facebookFilter.setRestTemplate(facebookTemplate);
 		UserInfoTokenServices tokenServices = new UserInfoTokenServices(facebookResource().getUserInfoUri(), facebook().getClientId());
 		tokenServices.setRestTemplate(facebookTemplate);
