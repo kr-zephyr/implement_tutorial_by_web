@@ -3,3 +3,5 @@ mvnw.cmd
 .idea/
 *.iml
 **/target/*
+**/node_modules/*
+opensources/puppeteer/puppeteer-test/result_assert/* 
