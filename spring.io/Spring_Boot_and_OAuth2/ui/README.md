@@ -4,14 +4,18 @@
 - application.yml에 facebook app 연동에 필요한 정보를 등록해야 하는데 github의 현재 repository는 public이므로 숨길 필요가 있다.
 - facebook app은 facebook 개발자 사이트에서 등록해야 한다.
     - [facebook 개발자 사이트](https://developers.facebook.com)
-- 숨겨야 하는 내용은 아래와 같다.
-    - security.oauth2.client.clientId
-    - security.oauth2.client.clientSecret
-- ui 앱을 기동 시 아래와 같이 VM option을 통해 설정값을 주입할 수 있다.
-    - -Dsecurity.oauth2.client.clientId={{clientId}} -Dsecurity.oauth2.client.clientSecret={{clientSecret}}
-    - Tutorial을 진행함에 따라 @EnableOAuth2Sso를 @EnableOAuth2Client으로 대체함으로써 개별 OAuth에 대한 구현을 가능하게 변경하였다.
-    - 현재(2019.05.24)는 Facebook Client를 직접 구현하는 형태로 바뀌었으며, application.yml의 설정도 security.oauth2.client가 아닌 facebook.client로 변경하였으므로 아래와 같이 주입해야 한다.
-    - -Dfacebook.client.clientId={{clientId}} -Dfacebook.client.clientSecret={{clientSecret}} 
+    - 숨겨야 하는 내용은 아래와 같다.
+        - security.oauth2.client.clientId
+        - security.oauth2.client.clientSecret
+    - ui 앱을 기동 시 아래와 같이 VM option을 통해 설정값을 주입할 수 있다.
+        - -Dsecurity.oauth2.client.clientId={{clientId}} -Dsecurity.oauth2.client.clientSecret={{clientSecret}}
+        - Tutorial을 진행함에 따라 @EnableOAuth2Sso를 @EnableOAuth2Client으로 대체함으로써 개별 OAuth에 대한 구현을 가능하게 변경하였다.
+        - 현재(2019.05.24)는 Facebook Client를 직접 구현하는 형태로 바뀌었으며, application.yml의 설정도 security.oauth2.client가 아닌 facebook.client로 변경하였으므로 아래와 같이 주입해야 한다.
+        - -Dfacebook.client.clientId={{clientId}} -Dfacebook.client.clientSecret={{clientSecret}}
+- github app은 github의 Settings > Developer settings > OAuth Apps에서 등록해야 한다.
+    - [github OAuth Apps](https://github.com/settings/developers)
+    - 숨겨야 하는 내용은 위의 facebook과 유사하다.
+    - facebook app과는 달리 github OAuth App을 등록할 때는 callback url을 필수로 지정해야 하는데, github에서 인증 후 돌아오는 페이지를 지정해주면 된다. (이 예제에서는 http://localhost:8080)
     
 #### application.yml의 spring.main.allow-bean-definition-overriding 옵션 추가 사유
 - SpringBoot2.1부터는 Spring Bean의 Override 기능이 제거되었다. (제거된 사유는 찾아보자.)
