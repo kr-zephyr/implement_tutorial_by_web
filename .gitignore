@@ -1,7 +1,7 @@
 mvnw
 mvnw.cmd
 **/build/
-**/.gralde/*
+**/.gralde/
 .idea/
 *.iml
 **/target/*
